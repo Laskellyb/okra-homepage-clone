@@ -11,11 +11,24 @@
   --dark-green-color: #048f6a;
   --dark-blue-color: #292C3B;
   --grey-text-color: #696a6a;
+  --grey-hover-color: #F4F6F8;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   padding: 0 120px;
+}
+
+/* Utility elements */
+.text-lg {
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.text-sm-light {
+  font-size: 14px;
+  color: var(--grey-text-color);
+  font-weight: 600;
 }
 
 /* Header */
@@ -57,7 +70,8 @@ body {
 .header button:first-of-type,
 .showcase button:nth-of-type(2),
 .header button:nth-of-type(2),
-.showcase button:first-of-type {
+.showcase button:first-of-type,
+.card button {
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
@@ -76,7 +90,8 @@ body {
 }
 
 .header button:nth-of-type(2),
-.showcase button:first-of-type {
+.showcase button:first-of-type,
+.card button {
   background-color: var(--green-primary-color);
   color: white;
   border: none;
@@ -132,9 +147,137 @@ body {
   width: 50%;
 }
 
+/* Testimonial */
+.testimonial {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.testimonial img {
+  width: 100%;
+}
+
+/* Explore  and radio*/
+.explore {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 50px;
+}
+
+.radio-container {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.radio-container h2 {
+  padding-bottom: 30px;
+}
+
+.radio-container p {
+  padding-bottom: 30px;
+  color: #696a6a;
+  font-weight: bold;
+}
+
+.radio-container a {
+  text-decoration: none;
+  color: var(--green-primary-color);
+}
+
+.radio-container a::after {
+  content: ' →';
+}
+
+.radio-container a:hover {
+  text-decoration: underline; 
+}
+
+.radio {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--grey-hover-color);
+  padding: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 120%;
+}
+
+.card h2 {
+  color: rgb(79, 77, 77);
+}
+
+.card p {
+  color: var(--grey-text-color);
+}
+
+.card button{
+  width: 25%;
+}
+
+.card.hidden {
+  display: none;
+}
+
+/* Grid container */
+.container {
+  padding-top: 200px;
+  background-color: var(--grey-hover-color);
+  margin: 0 -100px 0 -120px;
+}
+
+.container-text {
+  padding-left: 150px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 50px 150px;
+  gap: 40px;
+}
+
+.grid-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60vh;
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 5px 3px 3px rgb(163, 159, 159);
+}
+
+.grid-box div {
+  padding-bottom: 100px;
+}
+
+.grid-box p {
+  padding-bottom: 15px;
+  color: var(--grey-text-color);
+  line-height: 1.5rem;
+  font-size: 18px;
+}
+
+.grid-box a{
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.grid-box a:hover {
+  color: var(--green-primary-color);
+  text-decoration: underline;
+}
+
 /* Media queries */
 @media (max-width: 798px) {
-
   body,
   .header {
     padding: 0;
@@ -161,8 +304,8 @@ body {
   /* Showcase */
   .showcase {
     grid-template-columns: 1fr;
-    height: relative;
-    padding: 100px 20px 0px;
+    height:auto;
+    padding: 100px 20px 30px;
   }
 
   .showcase h1 {
@@ -173,9 +316,93 @@ body {
 
   .showcase p {
     width: 100%;
+
   }
 
   .showcase img {
     display: none;
+  }
+
+  /* Testimonial */
+  .testimonial {
+    padding: 20px;
+  }
+
+  /* Explore */
+  .explore {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-left: 20px;
+  }
+
+  .radio-container {
+    height: auto;
+  }
+
+  .radio-container h2 {
+    font-size: 25px;
+    width: 20%;
+  }
+
+  .radio {
+    display: none;
+  }
+
+  /* Card container */
+  .card {
+    height: 120vh;
+    width: 50%;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  .card button{
+    width: 50%;
+  }
+  
+
+  /* Grid container */
+  .container {
+    padding-top: 0;
+    margin: 0 -100px 0 -120px;
+  }
+
+  .container-text {
+    padding-left: 150px;
+  }
+
+  .container-text h2 {
+    font-size: 25px;
+    padding-bottom: 20px;
+  }
+
+  .container-text p {
+    font-size: 15px;
+    color: var(--grey-text-color);
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-box {
+    height: 50vh;
+    padding: 30px;
+
+  }
+
+  .grid-box div {
+    padding-bottom: 60px;
+  }
+
+  .grid-box p {
+    line-height: 1.2rem;
+    font-size: 15px;
   }
 }
