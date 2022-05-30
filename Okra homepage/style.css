@@ -19,7 +19,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  /* padding: 0 120px; */
+  overflow-x: hidden;
 }
 
 /* Utility elements */
@@ -69,6 +69,10 @@ body {
   display: none;
 }
 
+.hide-menu {
+  display: none;
+}
+
 /* Header buttons */
 .header button:first-of-type,
 .showcase button:nth-of-type(2),
@@ -76,7 +80,8 @@ body {
 .showcase button:first-of-type,
 .card button,
 .code button,
-.banks-logo button {
+.banks-logo button,
+.api-data button {
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
@@ -214,19 +219,23 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 120%;
+  height: auto;
+  margin-bottom: 100px;
 }
 
 .card h2 {
   color: rgb(79, 77, 77);
+  padding-bottom: 20px;
 }
 
 .card p {
   color: var(--grey-text-color);
+  padding-bottom: 20px;
 }
 
 .card button {
   width: 25%;
+  padding-bottom: 20px;
 }
 
 .card.hidden {
@@ -243,6 +252,7 @@ body {
 
 .container-text {
   padding-left: 150px;
+  padding-top: 50px;
 }
 
 .grid-container {
@@ -361,6 +371,65 @@ body {
   color: rgb(177, 175, 175);
 }
 
+/* APi data */
+
+.api-data {
+  display: flex;
+  gap: 200px;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+  margin: 100px 150px;
+  background-color: #7664FE;
+  border-radius: 8px;
+}
+
+.api-data h1 {
+  width: 50%;
+  font-size: 30px;
+  color: white;
+}
+
+.api-data button {
+  border: none;
+  border-radius: 8px;;
+}
+
+/* Footer */
+.footer-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 100px 120px;
+}
+
+.footer-grid-container i {
+  padding-right: 20px;
+}
+
+.footer-grid-container a {
+  text-decoration: none;
+  color: var(--grey-text-color);
+  line-height: 2.5rem;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.footer-grid-container a:hover {
+  color: var(--green-primary-color);
+  text-decoration: underline;
+}
+
+.footer-grid-container p:first-of-type {
+  font-weight: bold;
+  line-height: 2.5rem;
+}
+
+footer #copyright {
+  margin-left: 120px;
+  padding-bottom: 200px;
+  font-size: 15px;
+}
+
 /* Media queries */
 @media (max-width: 798px) {
   body,
@@ -383,6 +452,23 @@ body {
 
   .header .menu {
     display: inline-block;
+    cursor: pointer;
+  }
+
+  .show-menu {
+    display: inline-block;
+  }
+
+  .show-menu .menu-flex {
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+  }
+
+  .show-menu .menu-flex p {
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 30px;
     cursor: pointer;
   }
 
@@ -435,16 +521,17 @@ body {
 
   /* Card container */
   .card {
-    height: 120vh;
     width: 50%;
   }
 
   .card h2 {
     font-size: 20px;
+    padding-bottom: 20px;
   }
 
   .card p {
     font-size: 14px;
+    padding-bottom: 20px;
   }
 
   .card button{
@@ -547,5 +634,47 @@ body {
 
   .data-grid p:first-of-type {
     font-size: 20px;
+  }
+
+  /* APi data */
+  .api-data {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    margin:0;
+    border-radius: none;
+  }
+  
+  .api-data h1 {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  /* Footer */
+  .footer-grid-container {
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .footer-grid-container div:first-of-type{
+    grid-column: 1/ span 2;
+  }
+ 
+  .footer-grid-container i {
+    padding-right: 20px;
+  }
+
+  
+  footer #copyright {
+    margin-left:20px;
+    padding-bottom: 50px;
+  }
+}
+
+@media(max-width: 400px) {
+  body {
+    overflow-x: hidden;
   }
 }
